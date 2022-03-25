@@ -40,6 +40,21 @@ const Modal = ({ handleClose, data, removeItem, updateItem }) => {
         }
     }, [data])
 
+    // Function
+    const handleSave = () => {
+        if (title) {
+            const obj = {
+                id: data.id,
+                title,
+                description,
+                status,
+                createdAt: data.createdAt,
+            }
+            updateItem(obj)
+            handleClose()
+        }
+    }
+
     // Render
     return (
         <Backdrop onClick={handleClose}>
@@ -97,21 +112,15 @@ const Modal = ({ handleClose, data, removeItem, updateItem }) => {
                                 : <div />
                         }
                         <div>
-                            <button className="secondary" onClick={handleClose}>
+                            <button
+                                className="secondary"
+                                onClick={handleClose}
+                            >
                                 Cancel
                             </button>
                             <button
                                 className="main"
-                                onClick={() => {
-                                    updateItem({
-                                        id: data.id,
-                                        title,
-                                        description,
-                                        status,
-                                        createdAt: data.createdAt,
-                                    })
-                                    handleClose()
-                                }}
+                                onClick={handleSave}
                             >
                                 Save
                             </button>
