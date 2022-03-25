@@ -32,11 +32,17 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
+    margin-bottom: 1rem !important;
 }
 
 .dateWrapper {
-    margin-top: 1rem;
     text-align: right;
+}
+
+.dateWrapper span {
+    opacity: .6;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .date {
@@ -47,5 +53,5 @@
 
 .date p {
     font-weight: 500;
-    font-size: 15px !important;
+    font-size: 14px !important;
 }
