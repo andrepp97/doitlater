@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { connect } from "react-redux";
 import { initialList, addItem, removeItem, updateItem } from "./redux/reducer";
 import { ToDoInput, ToDoList } from "./components";
@@ -21,16 +21,17 @@ const mapDispatchToProps = (dispatch) => {
 
 // THE COMPONENT
 const App = (props) => {
+    // Get Data
+    const getInitialList = useCallback(async () => {
+        const result = await fetch(process.env.REACT_APP_URL)
+        const data = await result.json()
+        props.initialList(data)
+    }, [props.initialList])
+
     // Lifecycle
     useEffect(() => {
-        const getInitialList = async () => {
-            const result = await fetch(process.env.REACT_APP_URL)
-            const data = await result.json()
-            props.initialList(data)
-        }
-
         getInitialList()
-    }, [])
+    }, [getInitialList])
 
     // Render
     return (
