@@ -1,0 +1,51 @@
+.card {
+    background: #ffffff;
+    cursor: pointer;
+    margin: 1rem;
+    padding: 10px 1rem;
+    border-radius: 8px;
+}
+
+.card:hover {
+    color: #eeeeee;
+    background: #6037B3;
+}
+
+.card:hover p {
+    opacity: 1;
+}
+
+.card p {
+    margin: 0;
+    opacity: .8;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px !important;
+}
+
+.description {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+}
+
+.dateWrapper {
+    margin-top: 1rem;
+    text-align: right;
+}
+
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.date p {
+    font-weight: 500;
+    font-size: 15px !important;
+}

@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
+import { initialList, addItem, removeItem, updateItem } from "./redux/reducer";
+import { ToDoInput, ToDoList } from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// MAP STATE
+const mapStateToProps = (state) => {
+    return {
+        toDoList: state,
+    };
+};
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initialList: (arr) => dispatch(initialList(arr)),
+        addItem: (obj) => dispatch(addItem(obj)),
+        removeItem: (id) => dispatch(removeItem(id)),
+        updateItem: (obj) => dispatch(updateItem(obj)),
+    };
+};
+
+// THE COMPONENT
+const App = (props) => {
+    // Lifecycle
+    useEffect(() => {
+        const getInitialList = async () => {
+            const result = await fetch(process.env.REACT_APP_URL)
+            const data = await result.json()
+            props.initialList(data)
+        }
+
+        getInitialList()
+    }, [])
+
+    // Render
+    return (
+        <div className="container">
+            <ToDoInput
+                data={props.toDoList}
+                addItem={props.addItem}
+            />
+            <ToDoList
+                data={props.toDoList}
+                removeItem={props.removeItem}
+                updateItem={props.updateItem}
+            />
+        </div>
+    );
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

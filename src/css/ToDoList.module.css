@@ -1,0 +1,31 @@
+.root {
+    margin: 1rem 0;
+    width: 800px;
+    display: grid;
+    grid-column-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.column {
+    width: 100%;
+}
+
+.column h4 {
+    margin: 0;
+    margin-bottom: 8px;
+    color: #505050;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.list {
+    padding: 1px;
+    border-radius: 8px;
+    background: #eeeff1;
+}
+
+.loading {
+    padding: 8px;
+    margin: 1rem;
+    background: #ffffff;
+}
