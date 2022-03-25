@@ -13,7 +13,7 @@ const addTodoReducer = createSlice({
             state = action.payload;
             return state;
         },
-
+        
         // Add item to list
         addItem: (state, action) => {
             state.push(action.payload);
