@@ -63,3 +63,14 @@
 .inputButton:active {
     background: #6037B3;
 }
+
+
+@media only screen and (max-width: 991px) {
+    .root {
+        width: 100%;
+    }
+    
+    .inputWrapper, .buttonWrapper {
+        width: 100%;
+    }
+}
