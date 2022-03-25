@@ -2,6 +2,20 @@ import React from "react";
 import ToDoCard from "./ToDoCard";
 import styles from "../css/ToDoList.module.css";
 
+// Function
+const filterAndSort = (data, type) => {
+    let temp = type === "desc" ? data.filter(item => item.status === 1) : data.filter(item => item.status === 0)
+
+    let sorted = temp.sort((a, b) => {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+    })
+
+    if (type === "desc") sorted.reverse()
+
+    return sorted
+}
+
+// Component
 const ToDoList = ({ data, removeItem, updateItem }) => {
     return (
         <div className={styles.root}>
@@ -13,8 +27,8 @@ const ToDoList = ({ data, removeItem, updateItem }) => {
                 <div className={styles.list}>
                     {
                         data
-                            ? data.filter(item => item.status === 0).length
-                                ? data.map(item => item.status === 0 && (
+                            ? filterAndSort(data, "asc").length
+                                ? filterAndSort(data, "asc").map(item => item.status === 0 && (
                                     <ToDoCard
                                         key={item.id}
                                         item={item}
@@ -33,10 +47,10 @@ const ToDoList = ({ data, removeItem, updateItem }) => {
                     Done
                 </h4>
                 <div className={styles.list}>
-                {
+                    {
                         data
-                            ? data.filter(item => item.status === 1).length
-                                ? data.map(item => item.status === 1 && (
+                            ? filterAndSort(data, "desc").length
+                                ? filterAndSort(data, "desc").map(item => item.status === 1 && (
                                     <ToDoCard
                                         key={item.id}
                                         item={item}
