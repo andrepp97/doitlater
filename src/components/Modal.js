@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { MdDelete } from "react-icons/md";
 import { motion } from "framer-motion";
 import Backdrop from "./ModalBackdrop";
 import styles from "../css/ToDoInput.module.css";
@@ -90,7 +91,7 @@ const Modal = ({ handleClose, data, removeItem, updateItem }) => {
                                             handleClose()
                                         }}
                                     >
-                                        Delete
+                                        <MdDelete size={18} />
                                     </button>
                                 )
                                 : <div />
