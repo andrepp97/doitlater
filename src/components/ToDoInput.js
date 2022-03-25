@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styles from "../css/ToDoInput.module.css";
 
-// STATIC
+// STATIC FUNCTION
 const generateDateTime = () => {
     let d = new Date();
     let datestring = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate() + " " + d.getHours() + ":" + d.getMinutes();
