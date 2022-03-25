@@ -131,3 +131,20 @@ code {
         padding: 1rem 2rem;
     }
 }
+
+@media only screen and (max-width: 500px) {
+    .modalButtons {
+        flex-direction: column-reverse;
+    }
+    
+    .mainButtons {
+        display: flex;
+        flex-direction: column-reverse;
+        margin-bottom: 1rem;
+    }
+
+    .modalButtons button {
+        width: 100%;
+        margin: 8px 0;
+    }
+}

@@ -111,7 +111,7 @@ const Modal = ({ handleClose, data, removeItem, updateItem }) => {
                                 )
                                 : <div />
                         }
-                        <div>
+                        <div className="mainButtons">
                             <button
                                 className="secondary"
                                 onClick={handleClose}
