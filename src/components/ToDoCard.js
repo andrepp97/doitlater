@@ -32,14 +32,16 @@ const ToDoCard = ({ item, removeItem, updateItem }) => {
                     <p className={styles.description}>
                         {item.description}
                     </p>
+                    <hr style={{ opacity: .5 }} />
                     <div className={styles.dateWrapper}>
-                        <div className={styles.date}>
-                            <MdAccessTime size={15} />&nbsp;
-                            <p>{item.createdAt.split(" ")[1]}</p>
-                        </div>
+                        <span>Created Date</span>
                         <div className={styles.date}>
                             <MdDateRange size={15} />&nbsp;
                             <p>{item.createdAt.split(" ")[0]}</p>
+                        </div>
+                        <div className={styles.date}>
+                            <MdAccessTime size={15} />&nbsp;
+                            <p>{item.createdAt.split(" ")[1].toString()}</p>
                         </div>
                     </div>
                 </motion.div>
