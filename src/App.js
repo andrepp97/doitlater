@@ -21,12 +21,21 @@ const mapDispatchToProps = (dispatch) => {
 
 // THE COMPONENT
 const App = (props) => {
+    // Props
+    const {
+        toDoList,
+        initialList,
+        addItem,
+        removeItem,
+        updateItem
+    } = props
+
     // Get Data
     const getInitialList = useCallback(async () => {
         const result = await fetch(process.env.REACT_APP_URL)
         const data = await result.json()
-        props.initialList(data)
-    }, [props.initialList])
+        initialList(data)
+    }, [initialList])
 
     // Lifecycle
     useEffect(() => {
@@ -37,13 +46,13 @@ const App = (props) => {
     return (
         <div className="container">
             <ToDoInput
-                data={props.toDoList}
-                addItem={props.addItem}
+                data={toDoList}
+                addItem={addItem}
             />
             <ToDoList
-                data={props.toDoList}
-                removeItem={props.removeItem}
-                updateItem={props.updateItem}
+                data={toDoList}
+                removeItem={removeItem}
+                updateItem={updateItem}
             />
         </div>
     );
