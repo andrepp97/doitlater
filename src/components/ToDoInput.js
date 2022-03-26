@@ -22,7 +22,7 @@ const ToDoInput = (props) => {
     const addItem = () => {
         if (title) {
             props.addItem({
-                id: props.data ? props.data.length + 1 : 1,
+                id: props.data.length ? props.data[props.data.length - 1].id + 1 : 1,
                 title,
                 description,
                 status: 0,
