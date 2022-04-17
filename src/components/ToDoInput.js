@@ -38,7 +38,7 @@ const ToDoInput = (props) => {
         <div className={styles.root}>
 
             <h2 className={styles.inputTitle}>
-                What To Do ?
+                Do it Later
             </h2>
 
             <div className={styles.inputWrapper}>
